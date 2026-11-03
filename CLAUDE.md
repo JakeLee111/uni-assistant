@@ -64,7 +64,7 @@ Rules:
    to Jake's Telegram via `.github/workflows/notify.yml`.
 
 ## Git rules
-- Commit as Jake: `git -c user.name="jakelee-nl" -c user.email="jakelee@ofoundation.nl" commit ...`
+- Commit as Jake: `git -c user.name="JakeLee111" -c user.email="88223573+JakeLee111@users.noreply.github.com" commit ...`
 - No `Co-Authored-By`, `Claude-Session`, "Generated with Claude" or any other Claude/AI mention in
   commit messages, PRs, code comments or files.
 
