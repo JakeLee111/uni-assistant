@@ -56,6 +56,8 @@ Rules:
 - If nothing is urgent, write "None" under URGENT.
 - If `status.json` says signed-out, or `checkedAt` is older than 3 hours, or the scrape lists `signedOut`,
   start the report with: `⚠️ Sign in again: on your Mac run  cd ~/Desktop/"Personal Assistant"/university/assistant && npm run login && npm run push-session`
+- Empty Blackboard courses are normal before professors post material: write "Nothing posted yet on Blackboard"
+  — don't suggest the scraper is broken unless the scrape has `errors` or `signedOut`.
 - End with one "Next:" line: the single most important thing to do today.
 4. Set `Last report:` in tracker.md to now, then commit and push `tracker.md` to `main` ("tracker <date>").
 
