@@ -1,5 +1,5 @@
 # Deadline tracker — Term 2-2026
-Last report: 2026-11-03 12:42 (Asia/Bangkok)
+Last report: 2026-11-03 12:47 (Asia/Bangkok)
 Courses: BSC120 Web Development I · BSC210 Ethics & Professional Issues · CSC231 System Programming · CSC353 Machine Learning Foundation
 Keep sorted by date. Status: ⬜ todo · 🟡 in progress · ✅ done
 
