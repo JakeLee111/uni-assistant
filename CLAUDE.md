@@ -63,5 +63,10 @@ Rules:
    Commit `tracker.md` and `report.md` and push to `main` ("report <date>"). The push sends report.md
    to Jake's Telegram via `.github/workflows/notify.yml`.
 
+## Git rules
+- Commit as Jake: `git -c user.name="jakelee-nl" -c user.email="jakelee@ofoundation.nl" commit ...`
+- No `Co-Authored-By`, `Claude-Session`, "Generated with Claude" or any other Claude/AI mention in
+  commit messages, PRs, code comments or files.
+
 ## Later
 - Grade calculator from each course's grading weights on Blackboard (not yet).

@@ -64,8 +64,8 @@ jobs:
           openssl enc -aes-256-cbc -pbkdf2 -salt -in assistant/auth/state.json -out session/state.enc -pass env:STATE_KEY
           echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\"}" > session/status.json
           cd session
-          git config user.name "uni-assistant"
-          git config user.email "uni-assistant@users.noreply.github.com"
+          git config user.name "jakelee-nl"
+          git config user.email "jakelee@ofoundation.nl"
           # Keep a single commit on this branch so hourly runs don't grow the repo.
           git checkout -q --orphan fresh
           git add -A
