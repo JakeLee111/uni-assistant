@@ -6,7 +6,7 @@ Time zone: Asia/Bangkok. Read-only: never submit, post, or send anything.
 
 ## Data
 - GitHub Actions (`.github/workflows/session.yml`) keeps the Blackboard session alive hourly
-  and scrapes Blackboard + Outlook at 07:40. Results are encrypted on the `session` branch:
+  and scrapes Blackboard + Outlook at 07:20. Results are encrypted on the `session` branch:
   `latest.json.enc` (scrape), `state.enc` (cookies — never decrypt or print), `status.json`.
 - Decrypt the scrape:
   `git fetch -q origin session && git show origin/session:latest.json.enc | openssl enc -d -aes-256-cbc -pbkdf2 -pass env:STATE_KEY > data/latest.json`

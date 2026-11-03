@@ -1,11 +1,11 @@
 # Hourly: keep the Blackboard session alive.
-# 00:40 UTC (07:40 Bangkok): also scrape Blackboard + Outlook for the 08:00 report.
+# 00:20 UTC (07:20 Bangkok): also scrape Blackboard + Outlook for the 08:00 report.
 # Session cookies and scraped data live encrypted on the `session` branch.
 name: session
 on:
   schedule:
     - cron: '17 * * * *'
-    - cron: '40 0 * * *'
+    - cron: '20 0 * * *'
   workflow_dispatch:
     inputs:
       scrape:
@@ -43,7 +43,7 @@ jobs:
         working-directory: assistant
         run: node keepalive.js && echo "status=ok" >> "$GITHUB_OUTPUT" || echo "status=signed-out" >> "$GITHUB_OUTPUT"
       - name: Scrape
-        if: github.event.schedule == '40 0 * * *' || inputs.scrape
+        if: github.event.schedule == '20 0 * * *' || inputs.scrape
         working-directory: assistant
         run: |
           npx playwright install --with-deps chromium
