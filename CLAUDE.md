@@ -59,7 +59,9 @@ Rules:
 - Empty Blackboard courses are normal before professors post material: write "Nothing posted yet on Blackboard"
   — don't suggest the scraper is broken unless the scrape has `errors` or `signedOut`.
 - End with one "Next:" line: the single most important thing to do today.
-4. Set `Last report:` in tracker.md to now, then commit and push `tracker.md` to `main` ("tracker <date>").
+4. Write the report (exactly what you output) to `report.md`. Set `Last report:` in tracker.md to now.
+   Commit `tracker.md` and `report.md` and push to `main` ("report <date>"). The push sends report.md
+   to Jake's Telegram via `.github/workflows/notify.yml`.
 
 ## Later
 - Grade calculator from each course's grading weights on Blackboard (not yet).

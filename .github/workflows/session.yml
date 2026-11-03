@@ -42,6 +42,16 @@ jobs:
         id: alive
         working-directory: assistant
         run: node keepalive.js && echo "status=ok" >> "$GITHUB_OUTPUT" || echo "status=signed-out" >> "$GITHUB_OUTPUT"
+      - name: Alert if signed out
+        if: steps.alive.outputs.status == 'signed-out'
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          # Only alert on the first failed check, not every hour.
+          grep -q '"blackboard":"ok"' session/status.json || exit 0
+          curl -sf "https://api.telegram.org/bot$TOKEN/sendMessage" --data-urlencode chat_id="$CHAT" \
+            --data-urlencode text="⚠️ Blackboard signed you out. On your Mac run: cd ~/Desktop/\"Personal Assistant\"/university/assistant && npm run login && npm run push-session" > /dev/null
       - name: Scrape
         if: github.event.schedule == '20 0 * * *' || inputs.scrape
         working-directory: assistant

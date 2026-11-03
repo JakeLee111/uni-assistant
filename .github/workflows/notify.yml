@@ -1,0 +1,20 @@
+# Sends the daily report to Telegram whenever the 08:00 routine pushes report.md.
+name: notify
+on:
+  push:
+    branches: [main]
+    paths: [report.md]
+  workflow_dispatch:
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Send report
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -sf "https://api.telegram.org/bot$TOKEN/sendMessage" \
+            --data-urlencode chat_id="$CHAT" \
+            --data-urlencode text@report.md > /dev/null
