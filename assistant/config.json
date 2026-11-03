@@ -1,5 +1,4 @@
 {
   "blackboardUrl": "https://learn.stamford.edu",
-  "timezone": "Asia/Bangkok",
-  "blackboardSsoPath": "/auth-saml/saml/login?apId=_184_1"
+  "timezone": "Asia/Bangkok"
 }

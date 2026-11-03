@@ -75,11 +75,7 @@ async function bbAll(path) {
 async function scrapeBlackboard() {
   let me;
   try {
-    me = await bbGet('/learn/api/public/v1/users/me').catch(async e => {
-      if (!e.auth) throw e;
-      await renewBlackboardSession();
-      return bbGet('/learn/api/public/v1/users/me');
-    });
+    me = await bbGet('/learn/api/public/v1/users/me');
   } catch (e) {
     if (e.auth) { result.signedOut.push('blackboard'); return; }
     throw e;
@@ -109,16 +105,6 @@ async function scrapeBlackboard() {
       .catch(e => (result.errors.push(`${c.courseId} contents: ${oneLine(e)}`), []));
     result.blackboard.courses.push(course);
   }
-}
-
-// Blackboard sessions expire after ~3h idle. Opening Blackboard in the browser
-// re-runs the Microsoft single sign-on using the saved Microsoft cookies.
-async function renewBlackboardSession() {
-  const page = await context.newPage();
-  const back = encodeURIComponent(BB + '/ultra/course');
-  await page.goto(`${BB}${config.blackboardSsoPath}&redirectUrl=${back}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  for (let i = 0; i < 20 && !page.url().startsWith(BB + '/ultra'); i++) await page.waitForTimeout(3000);
-  await page.close();
 }
 
 // Outlook web: read the inbox list (sender, subject, preview, time).

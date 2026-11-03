@@ -12,8 +12,7 @@ const statePath = fileURLToPath(new URL('./auth/state.json', import.meta.url));
 const browser = await chromium.launch({ headless: false });
 const context = await browser.newContext({ locale: 'en-US', timezoneId: config.timezone });
 const bb = await context.newPage();
-// Sign in to Blackboard through Office 365 so the daily run can renew the session itself.
-await bb.goto(`${config.blackboardUrl}${config.blackboardSsoPath}&redirectUrl=${encodeURIComponent(config.blackboardUrl + '/ultra/course')}`);
+await bb.goto(config.blackboardUrl);
 const mail = await context.newPage();
 await mail.goto('https://outlook.office.com/mail/');
 
