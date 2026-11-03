@@ -1,0 +1,63 @@
+# Hourly: keep the Blackboard session alive.
+# 00:40 UTC (07:40 Bangkok): also scrape Blackboard + Outlook for the 08:00 report.
+# Session cookies and scraped data live encrypted on the `session` branch.
+name: session
+on:
+  schedule:
+    - cron: '17 * * * *'
+    - cron: '40 0 * * *'
+  workflow_dispatch:
+    inputs:
+      scrape:
+        description: 'Also scrape now'
+        type: boolean
+        default: false
+concurrency: session
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      STATE_KEY: ${{ secrets.STATE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: session
+          path: session
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: assistant/package-lock.json
+      - run: npm ci
+        working-directory: assistant
+      - name: Decrypt session
+        run: |
+          mkdir -p assistant/auth
+          openssl enc -d -aes-256-cbc -pbkdf2 -in session/state.enc -out assistant/auth/state.json -pass env:STATE_KEY
+      - name: Keep alive
+        id: alive
+        working-directory: assistant
+        run: node keepalive.js && echo "status=ok" >> "$GITHUB_OUTPUT" || echo "status=signed-out" >> "$GITHUB_OUTPUT"
+      - name: Scrape
+        if: github.event.schedule == '40 0 * * *' || inputs.scrape
+        working-directory: assistant
+        run: |
+          npx playwright install --with-deps chromium
+          node scrape.js
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in ../data/latest.json -out ../session/latest.json.enc -pass env:STATE_KEY
+      - name: Save session
+        run: |
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in assistant/auth/state.json -out session/state.enc -pass env:STATE_KEY
+          echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\"}" > session/status.json
+          cd session
+          git config user.name "uni-assistant"
+          git config user.email "uni-assistant@users.noreply.github.com"
+          # Keep a single commit on this branch so hourly runs don't grow the repo.
+          git checkout -q --orphan fresh
+          git add -A
+          git commit -q -m "session $(date -u +%FT%TZ)"
+          git push -q -f origin fresh:session

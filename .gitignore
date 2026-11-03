@@ -1,0 +1,4 @@
+node_modules/
+assistant/auth/
+*.log
+data/latest.json
