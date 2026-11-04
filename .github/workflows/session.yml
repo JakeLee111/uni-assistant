@@ -1,5 +1,6 @@
-# Hourly: keep the Blackboard session alive.
-# 00:20 UTC (07:20 Bangkok): also scrape Blackboard + Outlook for the 08:00 report.
+# Keeps the Blackboard session alive. Triggered every 30 min by cron-job.org (workflow_dispatch),
+# with GitHub's own hourly schedule as a backup (GitHub often skips scheduled runs).
+# The first run after 07:00 Bangkok each day also scrapes Blackboard + Outlook for the 08:00 report.
 # Session cookies and scraped data live encrypted on the `session` branch.
 name: session
 on:
@@ -52,8 +53,18 @@ jobs:
           grep -q '"blackboard":"ok"' session/status.json || exit 0
           curl -sf "https://api.telegram.org/bot$TOKEN/sendMessage" --data-urlencode chat_id="$CHAT" \
             --data-urlencode text="⚠️ Blackboard signed you out. On your Mac run: cd ~/Desktop/\"Personal Assistant\"/university/assistant && npm run login && npm run push-session" > /dev/null
+      - name: Scrape today?
+        id: due
+        run: |
+          today=$(TZ=Asia/Bangkok date +%F); hour=$(TZ=Asia/Bangkok date +%H)
+          last=$(grep -o '"lastScrape":"[^"]*"' session/status.json 2>/dev/null | cut -d'"' -f4)
+          if [ "${{ inputs.scrape }}" = "true" ] || { [ "$hour" -ge 7 ] && [ "$last" != "$today" ]; }; then
+            echo "run=true" >> "$GITHUB_OUTPUT"; echo "last=$today" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"; echo "last=$last" >> "$GITHUB_OUTPUT"
+          fi
       - name: Scrape
-        if: github.event.schedule == '20 0 * * *' || inputs.scrape
+        if: steps.due.outputs.run == 'true'
         working-directory: assistant
         run: |
           npx playwright install --with-deps chromium
@@ -62,7 +73,7 @@ jobs:
       - name: Save session
         run: |
           openssl enc -aes-256-cbc -pbkdf2 -salt -in assistant/auth/state.json -out session/state.enc -pass env:STATE_KEY
-          echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\"}" > session/status.json
+          echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\",\"lastScrape\":\"${{ steps.due.outputs.last }}\"}" > session/status.json
           cd session
           git config user.name "JakeLee111"
           git config user.email "88223573+JakeLee111@users.noreply.github.com"
