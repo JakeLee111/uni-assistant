@@ -1,12 +1,12 @@
-Thu 5 Nov
+Fri 6 Nov
 
 URGENT
-None
+1. CSC357 Final grade — meet Prof. Tripura at his office in Week 1 of next term (date TBA), reply to confirm a time ⚠️
 
 UPCOMING
-Nothing posted yet on Blackboard (BSC120, BSC210, CSC231, CSC353).
+Nothing posted yet on Blackboard
 
 ANNOUNCEMENTS
-• None
+• Nothing posted yet on Blackboard
 
-Next: nothing due today — check Blackboard again tomorrow.
+Next: reply to Prof. Tripura to confirm when to meet about your CSC357 final grade.
