@@ -1,13 +1,12 @@
-Sat 7 Nov
+Sun 8 Nov
 
 URGENT
 None
 
 UPCOMING
-1. CSC357 Meeting with Prof. Shuvra Tripura about final grade — Week 1 of next term (date TBA) ⚠️ confirm the exact date
+1. CSC357 — meet Prof. Shuvra Tripura at office about final grade, around Week 1 of next term (date TBA) ⚠️
 
 ANNOUNCEMENTS
 • Nothing posted yet on Blackboard (BSC120, BSC210, CSC231, CSC353)
-• No new university emails since yesterday
 
-Next: reply to Prof. Shuvra to confirm the CSC357 grade meeting date
+Next: email Prof. Shuvra Tripura to confirm a date for the CSC357 grade meeting
