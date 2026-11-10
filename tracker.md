@@ -1,6 +1,6 @@
 # Deadline tracker — Term 2-2026
-Last report: 2026-11-09 08:02 (Asia/Bangkok)
-Courses: BSC120 Web Development I · BSC210 Ethics & Professional Issues · CSC231 System Programming · CSC353 Machine Learning Foundation
+Last report: 2026-11-10 08:05 (Asia/Bangkok)
+Courses: PSY101 Everyday Psychology · ITE210 Social & Professional Issues in IT · BSC120 Web Development I · CSC353 Machine Learning Foundation
 Keep sorted by date. Status: ⬜ todo · 🟡 in progress · ✅ done
 
 | Due (date, time) | Course | Type | Item | Posted | Status | Notes |
@@ -10,3 +10,4 @@ Keep sorted by date. Status: ⬜ todo · 🟡 in progress · ✅ done
 ## Announcements log
 | Date | Course | Summary | Action |
 |---|---|---|---|
+| 2026-11-09 | Student Council | Add\/Drop\/Withdraw still available after Academic Affairs meeting (email, truncated) | Read full email |
