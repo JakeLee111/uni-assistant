@@ -1,5 +1,5 @@
 # Deadline tracker — Term 2-2026
-Last report: 2026-11-10 08:05 (Asia/Bangkok)
+Last report: 2026-11-11 08:05 (Asia/Bangkok)
 Courses: PSY101 Everyday Psychology · ITE210 Social & Professional Issues in IT · BSC120 Web Development I · CSC353 Machine Learning Foundation
 Keep sorted by date. Status: ⬜ todo · 🟡 in progress · ✅ done
 

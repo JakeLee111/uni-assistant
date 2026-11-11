@@ -1,13 +1,14 @@
-Tue 10 Nov
+Wed 11 Nov
+
+⚠️ Data may be stale: last scrape was 10 Nov 07:01 (about 25h ago).
 
 URGENT
-1. CSC357 — meet Prof. Tripura at office about final grade, Week 1 of next term (date TBA) ⚠️
+1. CSC357 — meet Prof. Shuvra Tripura at his office about your final grade (AI Capstone), Week 1 of next term, date TBA ⚠️ confirm the exact date with him
 
 UPCOMING
 None
 
 ANNOUNCEMENTS
-• Nothing posted yet on Blackboard (PSY101, ITE210, BSC120, CSC353)
-• Email: Student Council says Add/Drop is still available after meeting Academic Affairs (Mon 9 Nov) — check the full email for details
+• Nothing posted yet on Blackboard
 
-Next: email Prof. Tripura to confirm a date for the CSC357 grade meeting
+Next: reply to Prof. Shuvra Tripura to confirm the date for the CSC357 grade meeting
