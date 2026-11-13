@@ -42,6 +42,9 @@ jobs:
       - name: Keep alive
         id: alive
         working-directory: assistant
+        env:
+          BB_USER: ${{ secrets.BB_USER }}
+          BB_PASS: ${{ secrets.BB_PASS }}
         run: node keepalive.js && echo "status=ok" >> "$GITHUB_OUTPUT" || echo "status=signed-out" >> "$GITHUB_OUTPUT"
       - name: Alert if signed out
         if: steps.alive.outputs.status == 'signed-out'
@@ -52,7 +55,7 @@ jobs:
           # Only alert on the first failed check, not every hour.
           grep -q '"blackboard":"ok"' session/status.json || exit 0
           curl -sf "https://api.telegram.org/bot$TOKEN/sendMessage" --data-urlencode chat_id="$CHAT" \
-            --data-urlencode text="⚠️ Blackboard signed you out. On your Mac run: cd ~/Desktop/\"Personal Assistant\"/university/assistant && npm run login && npm run push-session" > /dev/null
+            --data-urlencode text="⚠️ Blackboard signed you out and automatic sign-in failed. On your Mac run: cd ~/Desktop/\"Personal Assistant\"/university/assistant && npm run login && npm run push-session" > /dev/null
       - name: Scrape today?
         id: due
         run: |
