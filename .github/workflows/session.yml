@@ -18,7 +18,7 @@ permissions:
   contents: write
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: Playwright 1.56 can't install Chromium on ubuntu-latest (26.04)
     timeout-minutes: 20
     env:
       STATE_KEY: ${{ secrets.STATE_KEY }}
@@ -68,12 +68,14 @@ jobs:
           fi
       - name: Scrape
         if: steps.due.outputs.run == 'true'
+        continue-on-error: true
         working-directory: assistant
         run: |
           npx playwright install --with-deps chromium
           node scrape.js
           openssl enc -aes-256-cbc -pbkdf2 -salt -in ../data/latest.json -out ../session/latest.json.enc -pass env:STATE_KEY
       - name: Save session
+        if: always()
         run: |
           openssl enc -aes-256-cbc -pbkdf2 -salt -in assistant/auth/state.json -out session/state.enc -pass env:STATE_KEY
           echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\",\"lastScrape\":\"${{ steps.due.outputs.last }}\"}" > session/status.json
