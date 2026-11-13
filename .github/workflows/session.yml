@@ -67,6 +67,7 @@ jobs:
             echo "run=false" >> "$GITHUB_OUTPUT"; echo "last=$last" >> "$GITHUB_OUTPUT"
           fi
       - name: Scrape
+        id: scrape
         if: steps.due.outputs.run == 'true'
         continue-on-error: true
         working-directory: assistant
@@ -78,7 +79,12 @@ jobs:
         if: always()
         run: |
           openssl enc -aes-256-cbc -pbkdf2 -salt -in assistant/auth/state.json -out session/state.enc -pass env:STATE_KEY
-          echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\",\"lastScrape\":\"${{ steps.due.outputs.last }}\"}" > session/status.json
+          last="${{ steps.due.outputs.last }}"
+          # If the scrape failed, keep the old lastScrape so the next run retries it.
+          if [ "${{ steps.due.outputs.run }}" = "true" ] && [ "${{ steps.scrape.outcome }}" != "success" ]; then
+            last=$(grep -o '"lastScrape":"[^"]*"' session/status.json 2>/dev/null | cut -d'"' -f4)
+          fi
+          echo "{\"checkedAt\":\"$(date -u +%FT%TZ)\",\"blackboard\":\"${{ steps.alive.outputs.status }}\",\"lastScrape\":\"$last\"}" > session/status.json
           cd session
           git config user.name "JakeLee111"
           git config user.email "88223573+JakeLee111@users.noreply.github.com"
