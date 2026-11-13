@@ -9,7 +9,7 @@ const config = JSON.parse(readFileSync(new URL('./config.json', import.meta.url)
 mkdirSync(new URL('./auth/', import.meta.url), { recursive: true });
 const statePath = fileURLToPath(new URL('./auth/state.json', import.meta.url));
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ headless: false, channel: 'chrome' });
 const context = await browser.newContext({ locale: 'en-US', timezoneId: config.timezone });
 const bb = await context.newPage();
 await bb.goto(config.blackboardUrl, { waitUntil: 'domcontentloaded', timeout: 0 }).catch(() => {});
