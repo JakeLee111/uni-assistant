@@ -12,9 +12,9 @@ const statePath = fileURLToPath(new URL('./auth/state.json', import.meta.url));
 const browser = await chromium.launch({ headless: false });
 const context = await browser.newContext({ locale: 'en-US', timezoneId: config.timezone });
 const bb = await context.newPage();
-await bb.goto(config.blackboardUrl);
+await bb.goto(config.blackboardUrl, { waitUntil: 'domcontentloaded', timeout: 0 }).catch(() => {});
 const mail = await context.newPage();
-await mail.goto('https://outlook.office.com/mail/');
+await mail.goto('https://outlook.office.com/mail/', { waitUntil: 'domcontentloaded', timeout: 0 }).catch(() => {});
 
 console.log('\nSign in to Blackboard AND Outlook in the browser window.');
 console.log('Tick "Stay signed in" if Microsoft asks.');
