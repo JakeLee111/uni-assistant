@@ -1,6 +1,6 @@
 ⚠️ Sign in again: on your Mac run  cd ~/Desktop/"Personal Assistant"/university/assistant && npm run login && npm run push-session
 
-Sat 14 Nov
+Sun 15 Nov
 
 URGENT
 None (Blackboard and Outlook are signed out, so nothing new could be checked)
