@@ -1,14 +1,13 @@
-⚠️ Sign in again: on your Mac run  cd ~/Desktop/"Personal Assistant"/university/assistant && npm run login && npm run push-session
-
-Mon 16 Nov
+Tue 17 Nov
 
 URGENT
-None (Blackboard and Outlook are signed out, so nothing new could be checked)
+1. Cashier email — final payment reminder, balance THB 70,860 ⚠️ · open full email for the deadline date
 
 UPCOMING
-1. CSC357 — meet Prof. Shuvra Tripura about your final grade, week 1 of next term (date TBA) ⚠️
+2. CSC357 AI Capstone — meet Prof. Shuvra about final grade, week 1 of next term (date TBA)
 
 ANNOUNCEMENTS
-• Student Council (9 Nov): Add/Drop/Withdraw still available — read the full email
+• Email: Prof. Shuvra said he'd send your Capstone grade breakdown Mon evening; check your inbox
+• Nothing posted yet on Blackboard: no assignments, quizzes or due dates in any course (only TQF3/syllabus files)
 
-Next: sign in again (command above) so tomorrow's report has fresh data.
+Next: open the Cashier payment email in Outlook and find the final payment date
