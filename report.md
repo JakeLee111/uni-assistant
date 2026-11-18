@@ -1,13 +1,14 @@
-Tue 17 Nov
+Wed 18 Nov
 
 URGENT
-1. Cashier email — final payment reminder, balance THB 70,860 ⚠️ · open full email for the deadline date
+1. Finance email — outstanding balance THB 70,860, final-round reminder, deadline date cut off in the email ⚠️ · open full email today
 
 UPCOMING
-2. CSC357 AI Capstone — meet Prof. Shuvra about final grade, week 1 of next term (date TBA)
+2. CSC357 — meet Prof. Shuvra about final grade, week 1 of next term (date TBA) ⚠️
 
 ANNOUNCEMENTS
-• Email: Prof. Shuvra said he'd send your Capstone grade breakdown Mon evening; check your inbox
-• Nothing posted yet on Blackboard: no assignments, quizzes or due dates in any course (only TQF3/syllabus files)
+• Email: Prof. Shuvra replied on AI Capstone grading (Tue) — says your project was promising; full breakdown is in the email, read it
+• PSY101: Psychology Certificate image posted, nothing else
+• Nothing posted yet on Blackboard for ITE210, ITE120, ITE353, PSY101 beyond course material; no deadlines
 
-Next: open the Cashier payment email in Outlook and find the final payment date
+Next: open the Finance payment email and find the exact deadline
