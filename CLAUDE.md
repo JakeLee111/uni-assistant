@@ -59,6 +59,13 @@ Rules:
 - Empty Blackboard courses are normal before professors post material: write "Nothing posted yet on Blackboard"
   — don't suggest the scraper is broken unless the scrape has `errors` or `signedOut`.
 - End with one "Next:" line: the single most important thing to do today.
+- No repeats: tracker.md has a `Shown` column (date last shown in full) and an `Ack` column (done/snoozed by Jake).
+  - An item is shown in full only when it is new, changed, newly urgent, or due within 3 days.
+  - Otherwise it is skipped; list unchanged open items on one line: `Still open: payment, Job Fair, ...`.
+  - Skip items marked done, and snoozed items until their snooze date.
+  - Announcements and emails appear once (first report after they are seen), never again.
+  - Don't list an empty course or "nothing new" as an announcement bullet; omit it. If nothing at all changed and nothing is urgent: short report (date, URGENT None, Still open line, Next).
+  - UPCOMING shows only items due within 14 days (30 days only for exams/payments).
 4. Write the report (exactly what you output) to `report.md`. Set `Last report:` in tracker.md to now.
    Commit `tracker.md` and `report.md` and push to `main` ("report <date>"). The push sends report.md
    to Jake's Telegram via `.github/workflows/notify.yml`.
