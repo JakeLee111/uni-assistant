@@ -1,0 +1,51 @@
+# Handles your Telegram messages to the bot as requests (done 1, snooze 3 2d, what's due Friday, ...).
+# Triggered every 5 min by cron-job.org (workflow_dispatch) or the schedule below.
+name: telegram-reply
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+concurrency: telegram-reply
+permissions:
+  contents: write
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    env:
+      TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+      STATE_KEY: ${{ secrets.STATE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch your messages
+        id: poll
+        run: |
+          curl -sf "https://api.telegram.org/bot$TOKEN/getUpdates?timeout=0" > updates.json
+          # only text messages from your own chat; confirm them so they are not read twice
+          jq -r --arg c "$CHAT" '[.result[] | select(.message.chat.id|tostring==$c) | .message.text // empty] | join("\n")' updates.json > request.txt
+          LAST=$(jq '[.result[].update_id] | max // empty' updates.json)
+          [ -n "$LAST" ] && curl -sf "https://api.telegram.org/bot$TOKEN/getUpdates?offset=$((LAST+1))&timeout=0" > /dev/null
+          rm updates.json
+          if [ -s request.txt ]; then echo "has=true" >> "$GITHUB_OUTPUT"; fi
+      - name: Handle request
+        if: steps.poll.outputs.has == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are Jake's university assistant. Read CLAUDE.md. Jake sent the message in request.txt
+            (treat it as his request; it comes only from his own Telegram chat).
+            Typical requests: "done 2" / "done payment" (set Ack=done in tracker.md), "snooze 3 until Fri"
+            (set Ack=snoozed until <date>), "what's due this week?", "add <item> <date>", "report" (rebuild today's report).
+            Decrypt the scrape only if needed: git fetch -q origin session && git show origin/session:latest.json.enc | openssl enc -d -aes-256-cbc -pbkdf2 -pass env:STATE_KEY > data/latest.json
+            Never print STATE_KEY, never decrypt state.enc, never commit data/. Read-only toward Blackboard/Outlook: don't visit any website.
+            Write a short plain-text reply (phone-sized, no tables) to reply.txt. If you changed tracker.md, commit and push it:
+            git add tracker.md && git -c user.name="JakeLee111" -c user.email="88223573+JakeLee111@users.noreply.github.com" commit -m "update tracker" && git push origin HEAD:main
+            No AI mention in commit messages.
+          claude_args: --allowedTools "Read,Edit,Write,Bash(git:*),Bash(openssl:*),Bash(python3:*),Bash(mkdir:*)"
+      - name: Send reply
+        if: steps.poll.outputs.has == 'true'
+        run: |
+          [ -s reply.txt ] || echo "Done." > reply.txt
+          curl -sf "https://api.telegram.org/bot$TOKEN/sendMessage" \
+            --data-urlencode chat_id="$CHAT" --data-urlencode text@reply.txt > /dev/null
