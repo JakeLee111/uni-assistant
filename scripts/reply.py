@@ -42,7 +42,7 @@ def set_ack(lines, i, val):
 def parse_date(s):
     s = s.strip().lower()
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).date()
-    m = re.match(r"(\d+)\s*d", s)
+    m = re.match(r"(\d+)d$", s)
     if m:
         return today + datetime.timedelta(days=int(m.group(1)))
     days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
