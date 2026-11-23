@@ -1,11 +1,11 @@
 # Deadline tracker — Term 2-2026
-Last report: 2026-11-22 08:10 (Asia/Bangkok)
+Last report: 2026-11-23 08:05 (Asia/Bangkok)
 Courses: PSY101 Everyday Psychology · ITE210 Social & Professional Issues in IT · BSC120 Web Development I · CSC353 Machine Learning Foundation
 Keep sorted by date. Status: ⬜ todo · 🟡 in progress · ✅ done
 
 | Due (date, time) | Course | Type | Item | Posted | Status | Notes |
 |---|---|---|---|---|---|---|
-| 2026-11-19 12:30 | BSC120 | Assignment | 01_CA_Week_1 (HTML Basics), 10 pts | 2026-11-18 | ❌ past due | Submission status unknown; check Blackboard. Dropped from report from 23 Nov |
+| 2026-11-19 12:30 | BSC120 | Assignment | 01_CA_Week_1 (HTML Basics), 10 pts | 2026-11-18 | ❌ past due | Submission status unknown; check Blackboard. Dropped from report 23 Nov |
 | 2026-11-27 | STIU | Event | Job Fair + Open House (16 companies) | 2026-11-12 | ⬜ | Optional |
 | 2026-12-01 12:30 | PSY101 | Class | Make-up class for 7 Dec holiday, Room 2204 | 2026-11-19 | ⬜ | |
 | 2026-12-08 12:30 | PSY101 | Class | Make-up class for 10 Dec holiday, Room 2302 | 2026-11-19 | ⬜ | |
