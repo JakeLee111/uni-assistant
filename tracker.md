@@ -1,12 +1,13 @@
 # Deadline tracker — Term 2-2026
-Last report: 2026-11-23 08:05 (Asia/Bangkok)
+Last report: 2026-11-24 08:05 (Asia/Bangkok)
 Courses: PSY101 Everyday Psychology · ITE210 Social & Professional Issues in IT · BSC120 Web Development I · CSC353 Machine Learning Foundation
 Keep sorted by date. Status: ⬜ todo · 🟡 in progress · ✅ done
 
 | Due (date, time) | Course | Type | Item | Posted | Status | Notes | Shown | Ack |
 |---|---|---|---|---|---|---|---|---|
 | 2026-11-19 12:30 | BSC120 | Assignment | 01_CA_Week_1 (HTML Basics), 10 pts | 2026-11-18 | ❌ past due | Submission status unknown; check Blackboard. Dropped from report 23 Nov | 2026-11-23 | |
-| 2026-11-27 | STIU | Event | Job Fair + Open House (16 companies) | 2026-11-12 | ⬜ | Optional | 2026-11-23 | |
+| 2026-11-23 14:20 | CSC353 | Assignment | Class Activity 1 (ITE353 course on Blackboard) | 2026-11-23 | ❌ past due | Submission status unknown; check Blackboard | 2026-11-24 | |
+| 2026-11-27 | STIU | Event | Job Fair + Open House (16 companies) | 2026-11-12 | ⬜ | Optional | 2026-11-24 | |
 | 2026-12-01 12:30 | PSY101 | Class | Make-up class for 7 Dec holiday, Room 2204 | 2026-11-19 | ⬜ | | 2026-11-23 | |
 | 2026-12-08 12:30 | PSY101 | Class | Make-up class for 10 Dec holiday, Room 2302 | 2026-11-19 | ⬜ | | 2026-11-23 | |
 | Date TBA (payment) | Finance | Payment | Final-round reminder: outstanding balance THB 70,860 (as of 15 Nov); deadline date truncated in email, check full email | 2026-11-16 | ⬜ | Email Mon 16 Nov. Wed 18 Nov: Cashier sent 2 payment links (THB 32,000 + 38,860 = 70,860) | 2026-11-23 | |

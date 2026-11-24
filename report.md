@@ -1,17 +1,14 @@
-Mon 23 Nov
+Tue 24 Nov
 
 URGENT
-1. Finance — pay outstanding THB 70,860 (2 payment links from Cashier, 18 Nov); final-round deadline date not visible in email ⚠️
+1. CSC353 Class Activity 1 — was due Mon 23 Nov 14:20 ⚠️ check on Blackboard that it was submitted
 
 UPCOMING
 2. STIU Job Fair + Open House — Fri 27 Nov (optional)
-3. PSY101 make-up class — Tue 1 Dec 12:30, Room 2204
-4. PSY101 make-up class — Tue 8 Dec 12:30, Room 2302
-5. CSC357 — meet Prof. Shuvra at office about final grade, week 1 of next term (date TBA)
 
 ANNOUNCEMENTS
-• Nothing new since last report
-• BSC120: 01_CA_Week_1 was due 19 Nov, now past due; check submission status on Blackboard
-• Nothing posted yet on Blackboard for CSC353, ITE210, or the ITE353 section
+• PSY101: new slides 101-3.pdf posted
 
-Next: open the Cashier's payment links, verify them on the official portal, and pay THB 70,860.
+Still open: payment THB 70,860 (date TBA), PSY101 make-ups 1 Dec + 8 Dec, CSC357 grade meeting (Week 1 next term)
+
+Next: check CSC353 Class Activity 1 on Blackboard > CSC353 > Class Activity 1
