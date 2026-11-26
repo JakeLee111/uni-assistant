@@ -1,11 +1,15 @@
-Wed 25 Nov
+Thu 26 Nov
 
 URGENT
 None
 
 UPCOMING
-1. STIU Job Fair + Open House — Fri 27 Nov (optional)
+1. STIU Job Fair + Open House — Fri 27 Nov (optional; ITE slot 12:00–13:00)
+2. ITE353 — no class Fri 27 Nov, make-up date TBA 📢
 
-Still open: Finance payment THB 70,860 (date TBA) ⚠️, PSY101 make-ups 1 Dec + 8 Dec, CSC357 meet Prof. Shuvra next term, CSC353 Class Activity 1 (past due 23 Nov)
+ANNOUNCEMENTS
+• ITE353: no class Fri 27 Nov (Open House); prof will share make-up details
 
-Next: check the full Finance payment email for the deadline date and pay the two links.
+Still open: PSY101 make-up 1 Dec + 8 Dec, tuition payment THB 70,860 (date TBA ⚠️), CSC357 grade meeting
+
+Next: pay or verify the tuition balance (THB 70,860) and check the full Cashier email for the deadline
