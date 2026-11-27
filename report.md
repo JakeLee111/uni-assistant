@@ -1,15 +1,17 @@
-Thu 26 Nov
+Fri 27 Nov
 
 URGENT
 None
 
 UPCOMING
-1. STIU Job Fair + Open House — Fri 27 Nov (optional; ITE slot 12:00–13:00)
-2. ITE353 — no class Fri 27 Nov, make-up date TBA 📢
+1. CSC353 — no class today (Open House); make-up date TBA from prof 📢
+2. STIU Job Fair — today, ITE slot 12:00–13:00 (optional)
+3. PSY101 Make-up class — Tue 1 Dec 12:30, Room 2204
+4. BSC120 CA Week 2 (Coding Club Mini Website) — Mon 30 Nov 12:30
 
 ANNOUNCEMENTS
-• ITE353: no class Fri 27 Nov (Open House); prof will share make-up details
+• ITE210: make-up classes Wed 16 Dec and Wed 13 Jan, 12:30–14:30 (Rooms 1204 / 2503)
 
-Still open: PSY101 make-up 1 Dec + 8 Dec, tuition payment THB 70,860 (date TBA ⚠️), CSC357 grade meeting
+Still open: tuition payment THB 70,860 ⚠️, PSY101 make-up 8 Dec, CSC357 grade meeting
 
-Next: pay or verify the tuition balance (THB 70,860) and check the full Cashier email for the deadline
+Next: Finish BSC120 CA Week 2 before Monday, and confirm the payment deadline with the cashier.
